@@ -66,7 +66,7 @@ void play2() {
     display();
 }
 
-void win_condition() {
+int win_condition() {
     int n = 1;
     while (n < 8) {
         if (moves[n] == moves[n+1] && moves[n+1] == moves[n+2] && moves[n+2] == player1) {
