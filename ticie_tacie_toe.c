@@ -23,18 +23,18 @@ void display(char moves[10])
 }
 
 
-int win_condition(char moves[], char player1, char player2, int played[], int allowed_moves[], int next_play, int z)
+int win_condition(char moves[], char player1, char player2, int played[], int next_play, int z)
 {
     int n = 1;
     while (n < 8)
     {
-        if (moves[n] == moves[n + 1] == moves[n + 3] == player1)
+        if (moves[n] == moves[n + 1] == moves[n + 2] == player1)
         {
             printf("Player 1 won (horizontal) \n");
             printf("Sometimes you are never meant to win player 2!! \n");
             return 0;
         }
-        else if (moves[n] == moves[n + 1] == moves[n + 3] == player2)
+        else if (moves[n] == moves[n + 1] == moves[n + 2] == player2)
         {
             printf("Player 2 won (horizontal) \n");
             printf("Sometimes you are never meant to win player 1!! \n");
@@ -118,6 +118,7 @@ void select_player1(char moves[10], int played[], int z) {
     printf("Player 1 is %c\n", player1);
     printf("Player 2 is %c\n", player2);
     display(moves[10]);
+    
 }
 
 void play1(int played[], char player1, char player2, char moves[10], int z) {
@@ -133,6 +134,7 @@ void play1(int played[], char player1, char player2, char moves[10], int z) {
     }
     moves[move_played] = player1;
     display(moves[10]);
+    win_condition(moves[10], player1, player2, played[], next_play, z);
 }
 
 void play2(int played[], char player1, char player2, char moves[10], int z) {
