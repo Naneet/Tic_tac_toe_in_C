@@ -72,11 +72,11 @@ void win_condition() {
         if (moves[n] == moves[n+1] && moves[n+1] == moves[n+2] && moves[n+2] == player1) {
             printf("Player 1 won (horizontal)\n");
             printf("Sometimes you are never meant to win player 2!!\n");
-            return;
+            return 0;
         } else if (moves[n] == moves[n+1] && moves[n+1] == moves[n+2] && moves[n+2] == player2) {
             printf("Player 2 won (horizontal)\n");
             printf("👀👀\n");
-            return;
+            return 0;
         }
         n = n + 3;
     }
@@ -86,10 +86,10 @@ void win_condition() {
         if (moves[n] == moves[n+3] && moves[n+3] == moves[n+6] && moves[n+6] == player1) {
             printf("Player 1 won (vertical)\n");
             printf("Sometimes you are never meant to win player 2!!\n");
-            return;
+            return 0;
         } else if (moves[n] == moves[n+3] && moves[n+3] == moves[n+6] && moves[n+6] == player2) {
             printf("Player 2 won (vertical)\n");
-            return;
+            return 0;
         }
         n = n + 1;
     }
@@ -109,7 +109,7 @@ void win_condition() {
         int i;
         for (i = 1; i < 10; i++) {
             if (moves[i] == ' ') {
-                return;
+                return 0;
             }
         }
         printf("It's a tie!!\n");
