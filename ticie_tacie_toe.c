@@ -122,6 +122,8 @@ void select_player1(char moves[10], int played[], int z) {
 
 void play1(int played[], char player1, char player2, char moves[10], int z) {
     int move_played;
+    int next_play = 2;
+    z += 1;
     printf("Player 1's Turn (1-9):");
     scanf("%d", &move_played);
     while (move_played < 1 || move_played > 9 || moves[move_played] != ' ') {
@@ -135,6 +137,8 @@ void play1(int played[], char player1, char player2, char moves[10], int z) {
 
 void play2(int played[], char player1, char player2, char moves[10], int z) {
     int move_played;
+    int next_play = 1;
+    z += 1;
     printf("Player 2's Turn (1-9):");
     scanf("%d", &move_played);
     while (move_played < 1 || move_played > 9 || moves[move_played] != ' ') {
@@ -144,6 +148,8 @@ void play2(int played[], char player1, char player2, char moves[10], int z) {
     }
     moves[move_played] = player2;
     display(moves[10]);
+    played[z] = move_played;
+    
 }
 
 
