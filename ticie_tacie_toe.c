@@ -171,23 +171,21 @@ char play_again() {
     return again;
 }
 
+void intro();
+void select_player1(char moves[], char played[]);
+char play_again();
+
 int main() {
     char again = 'Y';
-    while (again == 'Y') {
-        memset(moves, ' ', sizeof(moves));
-        char moves[10] = { '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' };
-        intro();
-        select_player1();
-        int z = 0;
-        while (1) {
+    while z=0(again == 'Y') {
+        char Player_Options[2] = {'X', 'O'};  // A list for cross-checking inputs
 
-            play1();
-            z += 1;
-            win_condition(z);
-            play2();
-            z += 1;
-            win_condition(z);
-        }
+        char moves[10] = "#         ";  // To record all the moves of the players
+
+        char played[10] = "";  // Positions that have already been played
+
+        intro();
+        select_player1(moves, played);
         again = play_again();
     }
     return 0;
