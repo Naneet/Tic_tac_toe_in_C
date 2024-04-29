@@ -29,12 +29,12 @@ void display() {
 void select_player1() {
     printf("Player 1 ('X' or 'O'):");
     scanf(" %c", &player1);
-    while (player1 != 'X' && player1 != 'O') {
+    while (player1 != 'X' && player1 != 'O' && player1 != 'x' && player1 != 'o') {
         printf("Oops! Seems like you entered an invalid option\n");
         printf("Player 1 ('X' or 'O'):");
         scanf(" %c", &player1);
     }
-    if (player1 == 'X') {
+    if (player1 == 'X' || player1 == 'x') {
         player2 = 'O';
     }
     else {
