@@ -159,12 +159,10 @@ int main() {
         while (something == 1) {
             play1();
             something = win_condition();
-            printf("%d",something);
             if (something == 1)
             {
                 play2();
                 win_condition();
-                printf("%d",something);
             }
         }
         again = play_again();
