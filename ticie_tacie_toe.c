@@ -162,8 +162,8 @@ int main() {
                 win_condition();
                 printf("%d",something);
             }
-            
+        }
         again = play_again();
-    }
+    
     return 0;}
     }
