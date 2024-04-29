@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 char moves[10] = { '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' };
 char played[10];
@@ -29,12 +30,14 @@ void display() {
 void select_player1() {
     printf("Player 1 ('X' or 'O'):");
     scanf(" %c", &player1);
-    while (player1 != 'X' && player1 != 'O' && player1 != 'x' && player1 != 'o') {
+    player1 = toupper(player1);
+    while (player1 != 'X' && player1 != 'O') {
         printf("Oops! Seems like you entered an invalid option\n");
         printf("Player 1 ('X' or 'O'):");
         scanf(" %c", &player1);
+        player1 = toupper(player1);
     }
-    if (player1 == 'X' || player1 == 'x') {
+    if (player1 == 'X') {
         player2 = 'O';
     }
     else {
