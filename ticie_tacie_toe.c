@@ -162,7 +162,7 @@ int main() {
             if (something == 1)
             {
                 play2();
-                win_condition();
+                something = win_condition();
             }
         }
         again = play_again();
