@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-char moves[10] = {'#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
+char moves[10] = { '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' };
 char played[10];
-char allowed_moves[10] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
+char allowed_moves[10] = { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
 char player1, player2;
 
 void intro() {
@@ -32,7 +32,8 @@ void select_player1() {
     }
     if (player1 == 'X') {
         player2 = 'O';
-    } else {
+    }
+    else {
         player2 = 'X';
     }
     printf("Player 1 is %c\n", player1);
@@ -69,11 +70,12 @@ void play2() {
 int win_condition() {
     int n = 1;
     while (n < 8) {
-        if (moves[n] == moves[n+1] && moves[n+1] == moves[n+2] && moves[n+2] == player1) {
+        if (moves[n] == moves[n + 1] && moves[n + 1] == moves[n + 2] && moves[n + 2] == player1) {
             printf("Player 1 won (horizontal)\n");
             printf("Sometimes you are never meant to win player 2!!\n");
             return 0;
-        } else if (moves[n] == moves[n+1] && moves[n+1] == moves[n+2] && moves[n+2] == player2) {
+        }
+        else if (moves[n] == moves[n + 1] && moves[n + 1] == moves[n + 2] && moves[n + 2] == player2) {
             printf("Player 2 won (horizontal)\n");
             printf("👀👀\n");
             return 0;
@@ -83,11 +85,12 @@ int win_condition() {
 
     n = 1;
     while (n < 4) {
-        if (moves[n] == moves[n+3] && moves[n+3] == moves[n+6] && moves[n+6] == player1) {
+        if (moves[n] == moves[n + 3] && moves[n + 3] == moves[n + 6] && moves[n + 6] == player1) {
             printf("Player 1 won (vertical)\n");
             printf("Sometimes you are never meant to win player 2!!\n");
             return 0;
-        } else if (moves[n] == moves[n+3] && moves[n+3] == moves[n+6] && moves[n+6] == player2) {
+        }
+        else if (moves[n] == moves[n + 3] && moves[n + 3] == moves[n + 6] && moves[n + 6] == player2) {
             printf("Player 2 won (vertical)\n");
             return 0;
         }
@@ -95,25 +98,34 @@ int win_condition() {
     }
 
     n = 1;
-    if (moves[n] == moves[n+4] && moves[n+4] == moves[n+8] && moves[n+8] == player1) {
+    if (moves[n] == moves[n + 4] && moves[n + 4] == moves[n + 8] && moves[n + 8] == player1) {
         printf("Player 1 won (diagonal)\n");
         printf("👀👀\n");
-    } else if (moves[n] == moves[n+4] && moves[n+4] == moves[n+8] && moves[n+8] == player2) {
+        return 0;
+    }
+    else if (moves[n] == moves[n + 4] && moves[n + 4] == moves[n + 8] && moves[n + 8] == player2) {
         printf("Player 2 won (diagonal)\n");
-    } else if (moves[n+2] == moves[n+4] && moves[n+4] == moves[n+6] && moves[n+6] == player1) {
+        return 0;
+    }
+    else if (moves[n + 2] == moves[n + 4] && moves[n + 4] == moves[n + 6] && moves[n + 6] == player1) {
         printf("Player 1 won (diagonal)\n");
         printf("Sometimes you are never meant to win player 2!!\n");
-    } else if (moves[n+2] == moves[n+4] && moves[n+4] == moves[n+6] && moves[n+6] == player2) {
+        return 0;
+    }
+    else if (moves[n + 2] == moves[n + 4] && moves[n + 4] == moves[n + 6] && moves[n + 6] == player2) {
         printf("Player 2 won (diagonal)\n");
-    } else {
+        return 0;
+    }
+    else {
         int i;
         for (i = 1; i < 10; i++) {
             if (moves[i] == ' ') {
-                return 0;
+                return 1;
             }
         }
         printf("It's a tie!!\n");
         printf("👀👀\n");
+        return 0;
     }
 }
 
@@ -139,13 +151,19 @@ int main() {
         moves[0] = '#';
         intro();
         select_player1();
-        while (1) {
+        int something = 1;
+        while (something == 1) {
             play1();
-            win_condition();
-            play2();
-            win_condition();
-        }
+            something = win_condition();
+            printf("%d",something);
+            if (something == 1)
+            {
+                play2();
+                win_condition();
+                printf("%d",something);
+            }
+            
         again = play_again();
     }
-    return 0;
-}
+    return 0;}
+    }
