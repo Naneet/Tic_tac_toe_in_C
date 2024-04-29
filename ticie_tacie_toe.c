@@ -137,12 +137,12 @@ char play_again() {
     char again[2];
     printf("Play again? (Y or N):");
     scanf("%s", again);
-    while (strcmp(again, "Y") != 0 && strcmp(again, "N") != 0) {
+    while (strcmp(again, "Y") != 0 && strcmp(again, "N") != 0 && strcmp(again, "y") != 0 && strcmp(again, "n") != 0) {
         printf("Oops! Seems like you entered an invalid option\n");
         printf("Play again? (Y or N):");
         scanf("%s", again);
     }
-    if (strcmp(again, "N") == 0) {
+    if (strcmp(again, "N") == 0 || strcmp(again, "n") == 0) {
         printf("Thanks for playing :)\n");
     }
     return again[0];
