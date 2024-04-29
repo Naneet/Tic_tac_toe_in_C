@@ -168,6 +168,6 @@ int main() {
             }
         }
         again = play_again();
-    
-    return 0;}
+    }
+    return 0;
     }
