@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -153,7 +154,7 @@ char play_again() {
 
 int main() {
     char again = 'Y';
-    while (again == 'Y') {
+    while (again == 'Y' || again == 'y') {
         memset(moves, ' ', sizeof(moves));
         moves[0] = '#';
         intro();
