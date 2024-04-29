@@ -11,14 +11,18 @@ void intro() {
     printf("Welcome to the game of tic tac toe\n");
     printf("Following are the numbers corresponding place on the board\n");
     printf("7|8|9\n");
+    printf("--|---|-- \n");
     printf("4|5|6\n");
+    printf("--|---|-- \n");
     printf("1|2|3\n");
     printf("You may enter the number to place 'X' or 'O' in your turn\n");
 }
 
 void display() {
     printf("%c|%c|%c\n", moves[7], moves[8], moves[9]);
+    printf("--|---|-- \n");
     printf("%c|%c|%c\n", moves[4], moves[5], moves[6]);
+    printf("--|---|-- \n");
     printf("%c|%c|%c\n", moves[1], moves[2], moves[3]);
 }
 
